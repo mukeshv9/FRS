@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Food Recommendation System</title>
+
+    <!-- Font Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='../static/style.css'>
+    
+    
+</head>
+
+<body onload="hiderecipes()">
+   
+    <main> 
+        <div class="hero">
+            <div class="container">
+                <div class="main-heading">
+                    <h1 class="title">Discover</h1>
+                    <h2 class="subtitle">Delicious Recipes</h2>
+                </div>
+                <a href="#preferences" class="btn btn-gradient">Explore Now
+                    
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Input form -->
+        <section class="preference" id="preferences">
+            <div class="container">
+                <form action="" class="form">
+                    <div class="input-group">
+                        <label for="dietp" class="input-label">Dietary Preference</label>
+                        <select id="dietp" class="options" >
+                            <option value="1">vegan</option>
+                            <option value="2">vegetarian</option>
+                            <option value="3">non-vegetarian</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="time" class="input-label">Time required to prepare the dish</label>
+                        <select id="time" class="options" >
+                            <option value="1">0-30 mins</option>
+                            <option value="2">30-60 mins</option>
+                            <option value="3">60-90 mins</option>
+                            <option value="4">90-120 mins</option>
+                            <option value="5">Longer than 120 mins</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="calories" class="input-label">Caloric Preference</label>
+                        <select id="calories" class="options" >
+                            <option value="1">Low Calorie</option>
+                            <option value="2">High Calorie</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="course" class="input-label">Course</label>
+                        <select id="course" class="options" >
+                            <option value="1">soup</option>
+                            <option value="2">appetizers</option>
+                            <option value="3">salads</option>
+                            <option value="4">main course</option>
+                            <option value="5">desserts</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <section class="ingredients">
+        <div class="container">
+            <h1> Choose your ingredients</h1>
+            <br>
+            <input value="butter" type="checkbox"> Butter <input value="rice" type="checkbox"> Rice <input value="pasta" type="checkbox"> Pasta <br>
+            <input value="flour" type="checkbox"> Flour <input value="bread" type="checkbox"> Bread <input value="oats" type="checkbox"> Oats <br>
+            <input value="noodle" type="checkbox"> Noodle <input value="salt" type="checkbox"> Salt <input value="sugar" type="checkbox"> Sugar <br> <input value="cereal" type="checkbox"> Cereal
+            <input value="cinnamon" type="checkbox"> Cinnamon <br> <input value="vanilla" type="checkbox"> Vanilla <input value="clove" type="checkbox"> Clove <br>
+            <input value="herbs" type="checkbox"> Herbs <input value="turmeric" type="checkbox"> Turmeric <br> <input value="pepper" type="checkbox"> Pepper
+            <input value="paprika" type="checkbox"> Paprika <input value="oregano" type="checkbox"> Oregano <br> <input value="cumin" type="checkbox"> Cumin
+            <input value="onion" type="checkbox"> Onion <input value="tomatoes" type="checkbox"> Tomato <input value="potatoes" type="checkbox"> Potato <br>
+            <input value="beef" type="checkbox"> Beef <input value="sausage" type="checkbox"> Sausage <input value="ham" type="checkbox"> Ham <br>
+            <input value="pork" type="checkbox"> Pork <input value="chicken" type="checkbox"> Chicken<br> <input value="bacon" type="checkbox"> Bacon
+            <input value="tuna" type="checkbox"> Tuna <br> <input value="cheese" type="checkbox"> Cheese <input value="milk" type="checkbox"> Milk
+            <input value="sunflower oil" type="checkbox"> Sunflower Oil <input value="vegetable oil" type="checkbox"> Vegetable Oil
+            <input value="olive oil" type="checkbox"> Olive Oil <br>
+            <input value="chocolate" type="checkbox"> Chocolate <input value="caramel" type="checkbox"> Caramel <br>
+            <input value="eggs" type="checkbox"> Eggs  
+            <input value="garlic" type="checkbox"> Garlic <br>
+            <input value="corn" type="checkbox"> Corn <input value="spinach" type="checkbox"> Spinach <input value="beet" type="checkbox"> Beet
+            <br><br><br>
+            <div class="btn-block">
+                <button class="btn btn-purple" type="submit" onclick="findrecipes()">Find Recipes</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Recipes -->
+    <div id="showlater">
+    <section class="recipes">
+        <div class="container">
+             <h5 class="section-head">
+                 <span class="heading">Recipes</span>
+             </h5>
+             <div class="grid">
+                 <div id="r1" class="grid-item featured-recipes">
+                     <img id="img1" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                     <h5 id="name1" class="recipe-name"></h5>
+                     <a id="link1" href="#" class="btn btn-gradient">
+                         Cook
+                         </a>
+                 </div>
+
+                <div id="r2" class="grid-item featured-recipes">
+                    <img id="img2" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                    <h5 id="name2" class="recipe-name"></h5>
+                    <a id="link2" href="#" class="btn btn-gradient">
+                        Cook
+                         </a>
+                </div>
+                
+                <div id="r3" class="grid-item featured-recipes">
+                    <img id="img3" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                    <h5 id="name3" class="recipe-name"></h5>
+                    <a id="link3" href="#" class="btn btn-gradient">
+                        Cook
+                        <span class="dot"><i class="fas fa-ellipsis"></i></span>
+                    </a>
+                </div>
+
+                <div id="r4" class="grid-item featured-recipes">
+                    <img id="img4" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                    <h5 id="name4" class="recipe-name"></h5>
+                    <a id="link4" href="#" class="btn btn-gradient">
+                        Cook
+                     </a>
+                </div>
+
+                <div id="r5" class="grid-item featured-recipes">
+                    <img id="img5" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                    <h5 id="name5" class="recipe-name"></h5>
+                    <a id="link5" href="#" class="btn btn-gradient">
+                        Cook
+                    </a>
+                </div>
+
+                <div id="r6" class="grid-item featured-recipes">
+                    <img id="img6" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                    <h5 id="name6" class="recipe-name"></h5>
+                    <a id="link6" href="#" class="btn btn-gradient">
+                        Cook
+                      </a>
+                </div>
+
+                <div id="r7" class="grid-item featured-recipes">
+                    <img id="img7" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                    <h5 id="name7" class="recipe-name"></h5>
+                    <a id="link7" href="#" class="btn btn-gradient">
+                        Cook
+                      </a>
+                </div>
+
+                <div id="r8" class="grid-item featured-recipes">
+                    <img id="img8" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                    <h5 id="name8" class="recipe-name"></h5>
+                    <a id="link8" href="#" class="btn btn-gradient">
+                        Cook
+                       </a>
+                </div>
+
+                <div id="r9" class="grid-item featured-recipes">
+                    <img id="img9" src="../static/images/recipe.jpg" alt="" class="recipe-image">
+                    <h5 id="name9" class="recipe-name"></h5>
+                    <a id="link9" href="#" class="btn btn-gradient">
+                        Cook
+                      </a>
+                </div>
+
+             </div>
+        </div>
+    </section>
+    </div>
+
+    <script src='../static/client.js'></script>
+    <script>
+        function hiderecipes(){
+            document.getElementById('showlater').style.visibility = 'hidden';
+        }
+    </script>
+</body>
+
+</html>
