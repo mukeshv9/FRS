@@ -35,7 +35,7 @@ This Project was built using the [Food.com Recipes and Interactions](https://www
   
 - Clone the repo
   
-        git clone https://github.com/mukeshjv/FRS
+        git clone https://github.com/mukeshv9/FRS
 
 - Move to working directory
 
